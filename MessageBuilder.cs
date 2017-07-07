@@ -11,7 +11,7 @@ namespace S22.Imap {
 	/// A helper class for reading mail message data and building a MailMessage
 	/// instance out of it.
 	/// </summary>
-	internal static class MessageBuilder {
+	public static class MessageBuilder {
 		/// <summary>
 		/// Creates a new empty instance of the MailMessage class from a string
 		/// containing a raw mail message header.
@@ -66,7 +66,7 @@ namespace S22.Imap {
 		/// <remarks>This is used when fetching entire messages instead
 		/// of the partial-fetch mechanism because it saves redundant
 		/// round-trips to the server.</remarks>
-		internal static MailMessage FromMIME822(string text) {
+		public static MailMessage FromMIME822(string text) {
 			StringReader reader = new StringReader(text);
 			StringBuilder header = new StringBuilder();
 			string line;
