@@ -17,12 +17,11 @@ namespace S22.Mail.UnitTest
         public void TestMIME822()
         {
             MailMessage mailMessage = GenerateMailMessage();
-            PrintMailMessage(mailMessage);
 
-            string str = mailMessage.ToMIME822();
-            Console.WriteLine(str);
+            string mime822 = mailMessage.ToMIME822();
             
-            mailMessage = MessageBuilder.FromMIME822(str);
+            mailMessage = MessageBuilder.FromMIME822(mime822);
+
             PrintMailMessage(mailMessage);
         }
 
@@ -54,7 +53,7 @@ namespace S22.Mail.UnitTest
 
         private static MailMessage GenerateMailMessage()
         {
-            MailAddress from = new MailAddress("244657538@qq.com", "Chuck Lu");
+            MailAddress from = new MailAddress("244657538@qq.com", "Chuck Lu, 子非鱼");
             MailAddress to = new MailAddress("778346154@qq.com","Jun Zhou");
             MailMessage mailMessage = new MailMessage(from, to)
             {
@@ -66,8 +65,8 @@ namespace S22.Mail.UnitTest
             mailMessage.CC.Add("614982784@qq.com");
             mailMessage.CC.Add("1263028489@qq.com");
             mailMessage.Bcc.Add("1595442830@qq.com");
-            mailMessage.Subject = "Hello World";
-            mailMessage.Body = "This is just a test";
+            mailMessage.Subject = "Hello World 世界你好";
+            mailMessage.Body = "This is just a test 这只是一个测试";
             return mailMessage;
         }
 
