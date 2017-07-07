@@ -17,8 +17,13 @@ namespace S22.Mail.UnitTest
         public void TestMIME822()
         {
             MailMessage mailMessage = GenerateMailMessage();
+            PrintMailMessage(mailMessage);
+
             string str = mailMessage.ToMIME822();
             Console.WriteLine(str);
+            
+            mailMessage = MessageBuilder.FromMIME822(str);
+            PrintMailMessage(mailMessage);
         }
 
         [Test]
@@ -43,17 +48,14 @@ namespace S22.Mail.UnitTest
                 // Rewind stream and deserialize MailMessage
                 s.Seek(0, SeekOrigin.Begin);
                 MailMessage newMailMessage = formatter.Deserialize(s) as SerializableMailMessage;
-                Console.WriteLine(newMailMessage.From.Address);
-                Console.WriteLine(newMailMessage.From.DisplayName);
-                Console.WriteLine(newMailMessage.Subject);
-                Console.WriteLine(newMailMessage.Body);
+                PrintMailMessage(newMailMessage);
             }
         }
 
         private static MailMessage GenerateMailMessage()
         {
-            MailAddress from = new MailAddress("244657538@qq.com", "Chuck LU");
-            MailAddress to = new MailAddress("778346154@qq.com");
+            MailAddress from = new MailAddress("244657538@qq.com", "Chuck Lu");
+            MailAddress to = new MailAddress("778346154@qq.com","Jun Zhou");
             MailMessage mailMessage = new MailMessage(from, to)
             {
                 HeadersEncoding = Encoding.UTF8,
@@ -62,10 +64,21 @@ namespace S22.Mail.UnitTest
             };
 
             mailMessage.CC.Add("614982784@qq.com");
+            mailMessage.CC.Add("1263028489@qq.com");
             mailMessage.Bcc.Add("1595442830@qq.com");
             mailMessage.Subject = "Hello World";
             mailMessage.Body = "This is just a test";
             return mailMessage;
+        }
+
+        private static void PrintMailMessage(MailMessage mailMessage)
+        {
+            Console.WriteLine($"From: {mailMessage.From}");
+            Console.WriteLine($"Subject: {mailMessage.Subject}");
+            Console.WriteLine($"To: {mailMessage.To}");
+            Console.WriteLine($"CC: {mailMessage.CC}");
+            Console.WriteLine($"Bcc: {mailMessage.Bcc}");
+            Console.WriteLine($"Body: {mailMessage.Body}");
         }
     }
 }
