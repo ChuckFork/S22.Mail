@@ -13,7 +13,7 @@ namespace S22.Imap {
 	/// These are only used internally and are not visible outside of the
 	/// S22.Imap assembly so as to not interfere with other assemblies.
 	/// </summary>
-	internal static class MailMessageExtension {
+	public static class MailMessageExtension {
 		/// <summary>
 		/// Constructs a textual representation of a mail message from the specified
 		/// MailMessage instance compliant with the RFC822 and MIME standards.
@@ -24,7 +24,7 @@ namespace S22.Imap {
 		/// message.</returns>
 		/// <exception cref="InvalidOperationException">Thrown if the From
 		/// property is null or is not properly initialized.</exception>
-		internal static string ToMIME822(this MailMessage message) {
+		public static string ToMIME822(this MailMessage message) {
 			NameValueCollection header = BuildHeader(message);
 			StringBuilder builder = new StringBuilder();
 
