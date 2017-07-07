@@ -1,7 +1,11 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S22.Mail", "S22.Mail.csproj", "{CA72A1AA-6F1A-4D5F-B98B-FD73F5407563}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S22.Mail.UnitTest", "S22.Mail.UnitTest\S22.Mail.UnitTest.csproj", "{BD3B1060-E39A-47F7-A891-F95F1CC78267}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +17,10 @@ Global
 		{CA72A1AA-6F1A-4D5F-B98B-FD73F5407563}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA72A1AA-6F1A-4D5F-B98B-FD73F5407563}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA72A1AA-6F1A-4D5F-B98B-FD73F5407563}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD3B1060-E39A-47F7-A891-F95F1CC78267}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD3B1060-E39A-47F7-A891-F95F1CC78267}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD3B1060-E39A-47F7-A891-F95F1CC78267}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD3B1060-E39A-47F7-A891-F95F1CC78267}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
